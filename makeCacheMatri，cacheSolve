@@ -1,3 +1,4 @@
+  ## makeCacheMatrix函数
 makeCacheMatri <- function(x = numeric()) {
         m <- NULL
         set <- function(y) {
@@ -11,7 +12,7 @@ makeCacheMatri <- function(x = numeric()) {
              setmatri = setmatri,
              getmatri = getmatri)
 } 
-
+ ## cacheSolve函数
 cacheSolve <- function(x, ...) {
         m <- x$getmatri()
         if(!is.null(m)) {
