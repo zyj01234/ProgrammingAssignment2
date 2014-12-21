@@ -1,0 +1,25 @@
+makeCacheMatri <- function(x = numeric()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmatri <- function(matri) m <<- matri
+        getmatri <- function() m
+        list(set = set, get = get,
+             setmatri = setmatri,
+             getmatri = getmatri)
+} 
+
+cacheSolve <- function(x, ...) {
+        m <- x$getmatri()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- matri(data, ...)
+        x$setmatri(m)
+        m
+}
